@@ -5,7 +5,7 @@ import { Button, Paper, Typography } from '@mui/material';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { createUser, findUsuario, updateUser } from '../../store/thunks/usuario.thunk';
 import Alerts from '../../components/Alerts'
-import { setEmail, setName, setReset } from '../../store/slice/usuario.slice';
+import { setEmail, setId, setName, setReset } from '../../store/slice/usuario.slice';
 import { useHistory, useParams } from 'react-router-dom';
 
 const CreateUpdateUser = (props) => {
@@ -23,6 +23,7 @@ const CreateUpdateUser = (props) => {
       dispatch(findUsuario(id));
     }
     return () => {
+      dispatch(setId(''));
       dispatch(setName(''));
       dispatch(setEmail(''));
     }

@@ -23,6 +23,10 @@ const CreateUpdateLivro = () => {
     if(id){
       dispatch(findLivro(id));
     }
+
+    return () => {
+      dispatch(setReset());
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
